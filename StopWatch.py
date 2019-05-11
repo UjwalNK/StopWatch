@@ -8,10 +8,18 @@ def counter_label(label):
             global counter 
   
             # To manage the intial delay. 
-            if counter==-1:             
+            minutes = int(counter / 60)
+            seconds = int(counter % 60)
+            hours   = int(minutes / 60)
+            if minutes > 60:
+                minutes = 0
+            if seconds > 60:
+                seconds = 0
+
+            if counter == -1:             
                 display="Starting..."
             else: 
-                display=str(counter) 
+                display=str(hours) + " : " + str(minutes) + " : " + str(seconds) 
   
             label['text']=display   # Or label.config(text=display) 
   
