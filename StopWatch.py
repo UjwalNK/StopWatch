@@ -22,20 +22,14 @@ def counter_label(label):
                 display=str(hours) + " : " + str(minutes) + " : " + str(seconds) 
   
             label['text']=display   # Or label.config(text=display) 
-  
-            # label.after(arg1, arg2) delays by  
-            # first argument given in milliseconds 
-            # and then calls the function given as second argument. 
-            # Generally like here we need to call the  
-            # function in which it is present repeatedly. 
-            # Delays by 1000ms=1 seconds and call count again. 
+
             label.after(1000, count)  
             counter += 1
   
     # Triggering the start of the counter. 
     count()      
   
-def Start(label):
+def Start(label): #For Start button
     global running
     running = True
     counter_label(label)
@@ -43,13 +37,13 @@ def Start(label):
     stop['state'] = 'normal'
     reset['state'] = 'normal'
 
-def Stop():
+def Stop(): # For Stop button
     global running
     start['state'] = 'normal'
     stop['state'] = 'disabled'
     reset['state'] = 'normal'
 
-def Reset():
+def Reset(): #For Reset button
     global counter
     counter = -1
     if running == False:
